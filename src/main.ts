@@ -1,19 +1,23 @@
 import './style.css';
-import { setupCounter } from './counter';
+import Board from './board';
+import Snake from './snake';
+import Food from './food';
+import {
+  BLOCK_SIZE,
+  BOARD_COLS,
+  BOARD_ROWS,
+  SNAKE_POSITION_X,
+  SNAKE_POSITION_Y,
+} from './globals';
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`;
+const board = new Board(BLOCK_SIZE, BOARD_COLS, BOARD_ROWS);
+const snake = new Snake(
+  BLOCK_SIZE,
+  SNAKE_POSITION_X,
+  SNAKE_POSITION_Y,
+  board.getContext(),
+  'white'
+);
+const food = new Food(BLOCK_SIZE, board.getContext(), 'green');
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
+document.addEventListener('keyup', snake.changeDirection);

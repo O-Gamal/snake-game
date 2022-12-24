@@ -21,13 +21,16 @@ class Food {
   };
 
   update = () => {
-    canvasContext.fillStyle = FOOD_COLOR || 'white';
-    canvasContext.fillRect(
-      this.positionX,
-      this.positionY,
-      BLOCK_SIZE,
-      BLOCK_SIZE
+    canvasContext.fillStyle = FOOD_COLOR;
+    canvasContext.beginPath();
+    canvasContext.arc(
+      this.positionX + BLOCK_SIZE / 2,
+      this.positionY + BLOCK_SIZE / 2,
+      BLOCK_SIZE / 2,
+      0,
+      2 * Math.PI
     );
+    canvasContext.fill();
   };
 
   public get x(): number {

@@ -5,7 +5,6 @@ import {
   BOARD_COLS,
   BOARD_ROWS,
 } from './game_configuration';
-
 class Snake {
   private velocityX: number;
   private velocityY: number;
@@ -60,7 +59,7 @@ class Snake {
     this.positionX += this.velocityX * BLOCK_SIZE;
     this.positionY += this.velocityY * BLOCK_SIZE;
 
-    canvasContext.fillStyle = SNAKE_COLOR || 'white';
+    canvasContext.fillStyle = SNAKE_COLOR;
     canvasContext.fillRect(
       this.positionX,
       this.positionY,
@@ -78,7 +77,6 @@ class Snake {
     this.body.forEach((bodyElem) => {
       if (bodyElem[0] === this.positionX && bodyElem[1] === this.positionY) {
         this.gameOver = true;
-        alert('game over');
       }
     });
 
@@ -88,12 +86,11 @@ class Snake {
 
     if (
       this.positionX < 0 ||
-      this.positionX > BOARD_COLS * BLOCK_SIZE - 1 ||
+      this.positionX > BOARD_COLS * BLOCK_SIZE - BLOCK_SIZE ||
       this.positionY < 0 ||
-      this.positionY > BOARD_ROWS * BLOCK_SIZE - 1
+      this.positionY > BOARD_ROWS * BLOCK_SIZE - BLOCK_SIZE
     ) {
       this.gameOver = true;
-      alert('game over');
     }
   };
 

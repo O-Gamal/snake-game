@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 
 :root {
-  --black: rgb(23, 23, 23);
+  --black: #171717;
   --darker: #0e0e0e;
-  --white: rgba(255, 255, 255, 0.87);
+  --white: #f0f0f0;
 
   font-family: 'Roboto Mono', monospace;
   font-size: 16px;
@@ -39,6 +39,38 @@ h1 {
   line-height: 1.1;
   margin: 3rem 0;
 }
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  gap: 2rem;
+}
+
+#play-again {
+  padding: 0.5rem 3rem;
+  background-color: var(--white);
+  outline: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #ff6f00;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+#play-again:hover {
+  opacity: 0.85;
+}
+
+#play-again:disabled {
+  display: none;
+}
+
+#board {
+  border: 5px solid #ff6f00;
+}
+
 /* 
 a {
   font-weight: 500;

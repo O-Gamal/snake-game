@@ -37,8 +37,6 @@ function update() {
     return;
   }
 
-  console.log(interval);
-
   board.update();
   food.update();
   snake.update();
